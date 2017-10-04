@@ -41,6 +41,8 @@ public class Details_DataEntryForm extends javax.swing.JFrame {
     
     /**
      * Creates new form mainForm
+     * @throws java.text.ParseException
+     * @throws java.io.FileNotFoundException
      */
     
     public Details_DataEntryForm() throws ParseException, FileNotFoundException, IOException {
@@ -548,7 +550,7 @@ public class Details_DataEntryForm extends javax.swing.JFrame {
         for(ISalariedPerson employee : arrayOfEmployees) {
             if(employee instanceof IManager && employee.getTimePeriod() == TimePeriods.FORTNIGHTLY) {
                 Manager manager = (Manager) employee;
-                PayrollReportItem payrollReportItem = new PayrollReportItem(manager, manager.getBaseSalary(), OCAProject.20172017.getFortnightlyCal().getTime(), manager.getTimePeriod());
+                PayrollReportItem payrollReportItem = new PayrollReportItem(manager, manager.getBaseSalary(), OCAProject.getCurrentDates().getFortnightlyCal().getTime(), manager.getTimePeriod());
                 PayrollReportsForm.setpayRollReportItems(payrollReportItem);
             }
             else if (employee instanceof IManager == false && employee.getTimePeriod() == TimePeriods.FORTNIGHTLY){
